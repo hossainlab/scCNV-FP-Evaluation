@@ -1,0 +1,602 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,amsmath,amssymb,booktabs,caption,authblk,lineno,microtype}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\captionsetup{font=small,labelfont=bf}
+\renewcommand{\arraystretch}{1.12}
+\linenumbers
+
+\title{\bfseries Malignant-cell callers assign tumour labels to tumour-free tissue:
+a null-control audit and a calibrated decision procedure}
+
+\author[1]{[AUTHOR NAMES TO BE SUPPLIED BEFORE SUBMISSION]}
+\affil[1]{Affiliation}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Single-cell studies of cancer routinely partition cells into malignant and
+non-malignant compartments using copy-number inference or supervised
+classifiers, and every downstream claim --- tumour heterogeneity, clonal
+architecture, malignant-cell programmes --- inherits whatever errors that
+partition makes. These methods are almost never evaluated on tissue that
+contains no tumour, so their false-positive rate is unknown. We assembled
+14 tumour-free single-cell RNA-seq datasets (36{,}528 cells, 76 donors, 10
+healthy organs and 4 tissues from inflammatory-disease cohorts) and ran three
+widely used malignant-cell callers under five published decision rules. Every
+positive call in this panel is, by construction, false. Published rules
+produced false malignant calls in every tissue examined, at rates spanning
+0.5--19.3\% for the two-criterion rule of Tirosh and colleagues~\cite{tirosh2016} and
+4.5--78.0\% for a forced two-group split. CopyKAT called 3.0--63.0\% of cells
+aneuploid, exceeding 20\% in 9 of 14 datasets; the supervised classifier
+ikarus called 0--100\%, exceeding 50\% in 4 of 14. Pooled over the panel,
+CopyKAT and ikarus each assigned roughly 31\% of tumour-free cells to the
+malignant class. We then built in-silico positive controls by imposing arm-level
+dosage changes of known magnitude on real cells, and found that per-cell
+discrimination is near chance for single events (AUC 0.53) and reaches only
+0.85 at 18 arm events. At matched false-positive rate, simply ranking cells
+by the continuous copy-number score detects roughly twice as many aneuploid
+cells as the published rule operating at that rate: the rules do not add
+information to the score, they choose a poor operating point on it. The false
+calls are not random. They share a reproducible pseudo-karyotype that
+correlates across independent tissues (median Spearman $\rho = 0.54$) and is
+predicted by local gene density ($\rho = -0.53$, $P = 2\times10^{-21}$):
+gene-dense regions appear deleted and gene deserts appear gained. Finally, we
+show that a cell-type-conditional empirical null, fitted on tumour-free
+reference cells and applied as a calibrated decision rule, holds the realized
+false-positive rate at or below its nominal target in 13 of 14 datasets
+(median 0.03\%, maximum 0.43\% at $\alpha = 5\%$), and that the single failure
+--- a dataset from a different protocol --- is repaired by drawing the null
+from held-out donors of the same dataset (27.1\% $\rightarrow$ 0.03\%). We
+provide the calibration as a small, caller-agnostic layer that consumes any
+per-cell copy-number score.
+\end{abstract}
+
+\section{Introduction}
+
+The separation of malignant from non-malignant cells is the first
+irreversible decision in most single-cell cancer analyses. It defines the
+denominator for tumour-cell abundance, the population in which intratumoural
+heterogeneity is measured, the cells from which malignant expression
+programmes are derived, and the input to clonal reconstruction. Two families
+of method dominate. The first infers large-scale copy-number variation from
+average expression in sliding genomic windows, following the approach
+introduced for oligodendroglioma, melanoma and
+glioblastoma~\cite{tirosh2016b,tirosh2016,patel2014} and implemented in
+inferCNV~\cite{infercnv}, CopyKAT~\cite{copykat} and related
+tools~\cite{conics,casper,honeybadger,numbat,scevan}; cells are then declared malignant by thresholding
+a per-cell summary of the inferred profile, or by clustering cells on that
+profile and designating one or more clusters as tumour. The second trains a
+supervised classifier on labelled tumour and normal cells and applies it to
+new data; ikarus~\cite{ikarus} is the most widely used example.
+
+Both families are evaluated, when they are evaluated at all, on tumour
+samples --- where the ground truth is itself often derived from the same or a
+closely related signal, and where a cell called malignant cannot easily be
+proven normal. The complementary experiment is rarely done: run the caller on
+tissue that contains no malignant cells and count the calls. Every such call
+is a false positive with certainty, requiring no ground-truth annotation
+beyond the provenance of the sample. This is the experiment we report here.
+
+The question matters beyond method benchmarking. A false-positive rate of a
+few per cent would be a minor nuisance; a rate of tens of per cent would mean
+that a substantial fraction of the cells contributing to published malignant
+programmes are normal cells, and that apparent tumour heterogeneity partly
+reflects normal cell-type diversity misassigned to the tumour compartment.
+The direction of the resulting bias is not random if the false calls are
+themselves structured --- if, for instance, the cells most likely to be
+miscalled are those with particular transcriptional or technical properties.
+
+We address three questions. First, what is the false-positive rate of current
+malignant-cell calling in tumour-free tissue, and how does it depend on the
+decision rule rather than on the underlying score? Second, what drives the
+false calls --- is there a systematic artefact, and can it be attributed to a
+property of the genome or of the assay? Third, can the decision step be
+replaced by a calibrated procedure with a controlled and verifiable
+false-positive rate, without retraining or replacing the underlying caller?
+
+\section{Results}
+
+\subsection{A tumour-free panel on which every positive call is false}
+
+We assembled 14 single-cell RNA-seq datasets in which no malignant cells are
+expected (Supplementary Table S1). Ten are healthy adult organs from a
+multi-organ reference atlas~\cite{tabula} --- bone marrow, kidney, large intestine, liver,
+lung, pancreas, skin, small intestine, spleen and stomach --- profiled on a
+common 10x 3$'$ v3 protocol. Four are drawn from inflammatory-disease
+cohorts: epithelial and immune compartments of Crohn's disease
+colon~\cite{kong2023}, psoriatic skin~\cite{gao2021pso}, and colon from an
+ulcerative colitis cohort~\cite{smillie2019}. The
+inflammatory-cohort tissues were included deliberately: inflammation induces
+strong, coordinated transcriptional programmes that are a plausible source of
+copy-number-like artefacts, and inflamed tissue is a common benign comparator
+in cancer studies. After subsampling, the panel comprises 36{,}528 cells from
+76 donors.
+
+We ran three callers across the full panel. The first is infercnvpy 0.6.1, a
+Python implementation of the inferCNV sliding-window algorithm (100-gene
+windows, 10-gene step), run in two reference modes: reference-free (each cell
+compared to the dataset mean) and immune-reference (T, B, NK, myeloid and
+related cells designated as diploid). The second is CopyKAT 1.2.5, run with
+the same immune reference. The third is ikarus 0.0.3, applied with its
+published pan-cancer gene signature and classifier. On the
+copy-number profiles we applied five decision rules taken from published
+practice: a forced two-group split, designation of the highest-scoring
+cluster as tumour, a per-cell quantile cutoff, a cutoff at a fixed multiple
+of the reference standard deviation, and the two-criterion rule of Tirosh and
+colleagues requiring both a high copy-number score and high correlation to
+the mean profile of the top-scoring cells.
+
+Every caller and every rule produced false malignant calls, in every tissue
+(Figure~\ref{fig:fp}a). With an immune reference, the two-criterion rule
+called 0.5--19.3\% of cells malignant depending on the dataset; the forced
+two-group split called 4.5--78.0\%. CopyKAT called 3.0--63.0\% of cells
+aneuploid, exceeding 20\% in 9 of 14 datasets and reaching 63.0\% in both
+healthy large and small intestine, 50.3\% in healthy skin and 49.8\% in
+healthy pancreas; pooled over the panel it called 30.7\% of tumour-free cells
+aneuploid. A further 0--80.6\% of cells per dataset were returned as
+\emph{not.defined} and are excluded from the denominators above; restricting
+to cells CopyKAT classified, the pooled rate is 35.3\%. ikarus called
+0--100\% of cells tumour, exceeding 50\% in 4 of 14 datasets, with 100\% of
+Crohn's colonic epithelium and 91.8\% of healthy liver assigned to the tumour
+class, and 30.6\% pooled. The three callers do not agree on which tissues are
+problematic: healthy liver is 91.8\% tumour by ikarus and 10.3\% aneuploid by
+CopyKAT, while healthy small intestine is 63.0\% aneuploid by CopyKAT and
+0.0\% tumour by ikarus.
+
+Two features of this result deserve emphasis. First, the rate is a property
+of the decision rule more than of the tissue: applied to the same copy-number
+profiles, the rules differ by more than an order of magnitude in pooled
+false-call rate (Figure~\ref{fig:fp}b). Second, the score being thresholded
+is unimodal (Figure~\ref{fig:fp}c). There is no malignant mode for a
+threshold to separate; any rule that must return a positive fraction will cut
+into the body of a normal distribution, and the fraction it returns is set by
+where the cut falls, not by the presence of tumour.
+
+\subsection{Positive controls: what the callers can actually detect}
+
+A high false-positive rate is only interpretable alongside the sensitivity
+that buys it. Because tumour-free tissue provides no positives, we
+constructed them: from each of three healthy tissues (lung, liver, spleen) we
+drew cells at random and imposed arm-level dosage changes of known burden on
+their expression, sampling whole chromosome arms and scaling the counts of
+all genes on the affected arms up or down before re-normalisation. This
+yields cells that are real in every respect except for a known, controlled
+karyotype, alongside untouched diploid companion cells from the same sample
+and protocol. We generated 8{,}994 such cells spanning burdens of 1 to 18
+arm-level events.
+
+Per-cell discrimination is weak at low burden and moderate at high burden
+(Figure~\ref{fig:spike}a). The area under the ROC curve for separating
+aneuploid from diploid cells using the continuous copy-number score is 0.53
+for a single arm event --- indistinguishable from chance --- rising to 0.85
+at 18 events. This sets a ceiling on what any decision rule built on this
+score can achieve, and it is a modest ceiling: cells carrying fewer than
+about five arm-level changes are not reliably separable from normal cells by
+single-cell expression-based copy-number inference at this sequencing depth.
+
+Neither the supervised classifier nor CopyKAT responds to dosage
+(Figure~\ref{fig:spike}b). The ikarus call rate on aneuploid cells (28.8\% at
+12--18 events) is indistinguishable from its call rate on the diploid
+companion cells in the same sample (30.9\%). Whatever ikarus is detecting, it
+is not copy-number dosage; its calls track the transcriptional context of the
+tissue, which is consistent with both its 100\% rate on Crohn's colonic
+epithelium and its 0\% rate on other datasets. CopyKAT's response is erratic
+and tissue-dependent: in spleen it calls 58.3\% of diploid companions and
+94.9\% of cells carrying 12--18 events aneuploid, in liver 1.7\% and 0.0\%,
+and in lung 14.9\% and 0.0\% --- that is, in two of three tissues the cells
+with the largest imposed karyotypes are the ones it is least likely to call
+aneuploid. Because CopyKAT emits a categorical call rather than a per-cell
+score, it cannot be placed on the matched-false-positive-rate comparison
+below.
+
+The comparison that matters for practice is between methods held at the same
+false-positive rate (Figure~\ref{fig:spike}c). For each rule, we measured its
+false-call rate on the diploid companions and its detection rate on the
+aneuploid cells, then thresholded the continuous score at exactly that
+false-call rate and read off its detection rate. At every operating point,
+ranking cells by the raw score detects substantially more aneuploid cells
+than the rule that operates there: 23.9\% versus 5.1\% at 5.4\% false calls
+(two-criterion rule), 65.0\% versus 21.5\% at 27.9\% false calls (forced
+two-group split), and 48.8\% versus 28.8\% at 30.9\% false calls (ikarus),
+all for cells carrying 12--18 arm events. The published rules therefore do
+not extract information the score does not contain; they select a poor
+operating point on it. The two-criterion rule is additionally uninformative
+about burden --- its detection rate at 12--18 events (5.1\%) is no higher
+than its detection rate averaged over all burdens (5.8\%).
+
+\subsection{The false calls share a gene-density-driven pseudo-karyotype}
+
+If false calls were random, they would be a power problem. They are not. We
+compared the mean inferred copy-number profile of falsely called cells to
+that of uncalled cells within each dataset, in 10-Mb genomic bins
+(Figure~\ref{fig:mech}a). The resulting difference profile is highly
+structured, with reproducible apparent losses and gains at specific loci ---
+a pseudo-karyotype that a reader would naturally interpret as a shared clonal
+event.
+
+This profile is reproducible across tissues that share no biology: bin-level
+difference profiles from independent datasets correlate with a median
+Spearman $\rho$ of 0.54 (Figure~\ref{fig:mech}c). A genuine clonal event
+cannot be shared by healthy kidney, healthy spleen and psoriatic skin.
+
+The profile is predicted by local gene density (Figure~\ref{fig:mech}b).
+Across 278 genomic bins, the apparent copy-number shift in falsely called
+cells correlates negatively with the number of genes in the bin (Spearman
+$\rho = -0.53$, $P = 2\times10^{-21}$): gene-dense regions appear deleted,
+and gene-poor regions appear gained. This is the expected signature of a
+compositional artefact. Sliding-window averaging of library-size-normalised
+expression makes each window's value depend on relative, not absolute,
+expression; cells whose expression distribution is broader or narrower than
+the reference --- for reasons of cell state, RNA content, or capture
+efficiency --- acquire a systematic, gene-density-dependent deviation across
+the whole genome. Because that deviation is genome-wide and smooth, it
+survives the smoothing steps copy-number callers apply, and because it is
+shared by cells with similar technical properties, it clusters those cells
+together and makes them look like a clone. We tested and rejected an
+alternative explanation: clustered gene families (immunoglobulin, HLA,
+histone, keratin and other locus-restricted families) do not explain the
+profile as a family-level effect, although individual family loci appear
+among the strongest bins.
+
+\subsection{A calibrated decision procedure with a verifiable error rate}
+
+The preceding results locate the problem in the decision step, not in the
+copy-number score. We therefore replaced the decision step. The procedure
+fits an empirical null distribution of the per-cell copy-number score on
+tumour-free reference cells, conditional on cell type, residualising
+sequencing depth --- because the score depends on depth, and cell types
+differ in depth. A query cell is called aneuploid if its score exceeds the
+$1-\alpha$ quantile of the null for its cell type. The procedure consumes any
+per-cell score and does not modify the caller.
+
+Under leave-one-tissue-out validation --- the null fitted on healthy tissues
+excluding the held-out dataset --- the realized false-positive rate is at or
+below the nominal target across the range $\alpha = 1\%$ to $10\%$
+(Figure~\ref{fig:cal}a), in 13 of 14 datasets. At $\alpha = 5\%$ the median
+realized rate is 0.03\% and the maximum 0.43\%, compared with 0.5--19.3\% for
+the two-criterion rule on the same data (Figure~\ref{fig:cal}b). The
+procedure is conservative rather than exact: a null pooled over ten tissues
+has heavier tails than any single tissue, so the realized rate falls below
+nominal. For an audit application this is the desired direction of error,
+but users seeking an exact rate should fit the null closer to the query data.
+
+Because cell-type labels are not always available, we also implemented a
+label-free variant that assigns each cell to one of a small set of
+transcriptional archetypes derived from reference centroids and conditions on
+the archetype instead of the label. It behaves similarly at $\alpha \le 5\%$,
+with more variability at $\alpha = 10\%$ (Figure~\ref{fig:cal}a).
+
+The single failure is informative. On the psoriatic skin dataset, the
+cross-tissue null gives a realized rate of 27.1\% --- worse than the
+published rule it replaces. That dataset differs from the reference tissues
+in protocol and study of origin, and the score distribution shifts
+accordingly, so a null fitted elsewhere does not transfer. Refitting the null
+on held-out donors from the same dataset removes the failure entirely: 27.1\%
+$\rightarrow$ 0.03\%, with a maximum of 3.67\% across all datasets analysed
+this way (Figure~\ref{fig:cal}c). The practical recommendation follows
+directly: the null must be drawn from cells processed like the query cells,
+and where a study contains multiple donors, held-out donors from the same
+study are the appropriate source.
+
+\section{Discussion}
+
+Malignant-cell calling in single-cell RNA-seq is performed with tools whose
+false-positive rate on tumour-free tissue has not been measured. We measured
+it. Under published decision rules the rate is not small, not stable across
+tissues, and not primarily a property of the biology: it is set by where an
+essentially arbitrary threshold falls on a unimodal score.
+
+The three findings compound. The score has limited per-cell discrimination
+for realistic karyotype burdens; the rules applied to it operate at points
+that waste even that discrimination; and the errors they make are
+systematically structured rather than random, producing an apparent shared
+karyotype driven by gene density. The last point is the most consequential
+for interpretation, because a structured false-positive population does not
+merely dilute a malignant compartment --- it adds a coherent, reproducible,
+biologically meaningless signal to it, of exactly the kind that clonal
+analyses are designed to detect.
+
+We do not conclude that copy-number inference from single-cell expression is
+without value. The continuous score carries real dosage information, and at
+high karyotype burden it discriminates well. The failure is in the conversion
+of that score into a binary label without a calibrated error rate. A
+cell-type-conditional empirical null, costing seconds of computation and
+requiring no change to the caller, converts an uncontrolled decision into one
+whose error rate can be stated and verified. Its conservativeness --- and its
+failure under protocol shift, which we report rather than conceal --- should
+both be understood before it is applied.
+
+Several practical recommendations follow. Report a false-positive rate,
+measured on tumour-free cells processed identically, alongside any malignant
+compartment. Prefer the continuous score to a binary label wherever the
+downstream analysis permits. Where a binary label is required, set the
+threshold from an explicit null rather than from a clustering outcome or a
+fixed quantile. Treat an apparent shared karyotype among called cells as a
+warning sign, and check it against gene density before interpreting it as
+clonal. And do not transfer a null across protocols.
+
+\section{Limitations}
+
+This study was executed at reduced scale relative to its design, and the
+reductions are material enough to state explicitly.
+
+\textbf{Panel size.} Each dataset was subsampled to approximately 3{,}000
+cells to make the full factorial of callers, reference modes and decision
+rules tractable on a single workstation. The panel therefore covers 14
+datasets and 36{,}528 cells, not the full atlases from which they are drawn.
+Rates reported per dataset carry sampling uncertainty accordingly; pooled
+rates are more stable than individual ones.
+
+\textbf{Callers covered.} Two callers were run across the full panel:
+infercnvpy (a Python implementation of the inferCNV algorithm) and ikarus.
+The original R implementation of inferCNV~\cite{infercnv} was not run;
+infercnvpy implements
+the same sliding-window algorithm but is not bit-identical, and rates
+reported here should not be attributed to the R package without verification.
+CopyKAT was run across the full panel, but on a subsample of at most 1{,}200
+cells per dataset (591--1{,}210 cells, drawn proportionally across cell
+types) rather than the approximately 3{,}000 cells used for the other two
+callers, because of its single-threaded runtime; its rates therefore carry
+wider sampling uncertainty. CopyKAT was run in its default immune-reference
+configuration only, not across the five decision rules, since it emits a
+categorical call rather than a per-cell score. Several further callers in
+common use --- CONICSmat~\cite{conics}, SCEVAN~\cite{scevan},
+Numbat~\cite{numbat} and other methods that use allelic
+information~\cite{casper,honeybadger} --- were not run at all. Numbat and related allele-aware methods are of particular interest
+because the artefact we describe is compositional and would not be expected
+to affect allelic imbalance in the same way; this is the most important
+untested extension of the audit.
+
+\textbf{Positive controls are in silico.} The aneuploid cells are real cells
+with simulated arm-level dosage changes, not cells from tumours with
+karyotypes established by an orthogonal assay. The simulation imposes a clean
+multiplicative dosage effect and therefore, if anything, overstates
+detectability relative to real tumour cells, where dosage compensation,
+subclonal structure and focal events complicate the signal. The AUC values we
+report should be read as upper bounds.
+
+\textbf{No matched orthogonal ground truth.} We did not analyse a dataset
+with matched single-cell DNA or bulk copy-number profiling, which would allow
+false-positive and false-negative rates to be measured on genuine tumour
+tissue rather than inferred from tumour-free tissue and simulation.
+
+\textbf{Composition of the inflammatory-cohort datasets.} Of the four
+non-healthy datasets, three contain cells annotated as diseased and one
+(colon, ulcerative colitis cohort) contains only cells annotated as
+non-diseased from that cohort. Conclusions about inflammation as a driver of
+false calls rest on the former three.
+
+\textbf{Calibration validation.} Leave-one-tissue-out validation uses
+tumour-free tissue only; the realized rate reported is a false-positive rate,
+not a false-discovery rate in the presence of true positives. The
+donor-held-out variant was restricted to datasets with at least two donors
+contributing at least 200 cells each.
+
+\section{Methods}
+
+\subsection{Data}
+
+Healthy tissues were obtained from a multi-organ human cell reference
+atlas~\cite{tabula} via the CELLxGENE Census, selecting primary 10x 3$'$ v3
+data from adult donors. Inflammatory-cohort datasets were obtained from the
+same source~\cite{kong2023,gao2021pso,smillie2019}. Each
+dataset was subsampled to at most approximately 3{,}000 cells, with cell-type
+proportions capped to avoid domination by a single type and all donors
+retained. Genes were restricted to those with an assigned chromosome and
+position in the annotation used by the callers. Per-dataset composition is
+given in Supplementary Table S1.
+
+\subsection{Copy-number inference}
+
+infercnvpy 0.6.1~\cite{infercnvpy} was run per dataset on log-normalised expression with
+100-gene sliding windows and a 10-gene step, in two modes: reference-free (no
+reference category) and immune-reference, in which cells whose annotated type
+matched a curated immune vocabulary (T, B, NK, plasma, myeloid, monocyte,
+macrophage, dendritic, mast, granulocyte and their subtypes) were designated
+the reference category. Per-cell scores were computed from the resulting
+window matrix as the mean squared deviation (used throughout unless stated),
+the mean absolute deviation, and the correlation to the mean profile of the
+top-scoring decile.
+
+CopyKAT 1.2.5~\cite{copykat} was run in R 4.4.3 under the same immune-reference
+designation, with default parameters, on a per-dataset subsample of at most
+1{,}200 cells drawn proportionally across annotated cell types. Cells
+returned as \texttt{not.defined} are reported separately and excluded from
+rate denominators unless stated.
+
+ikarus 0.0.3~\cite{ikarus} was run with the published pan-cancer gene
+signature and logistic-regression classifier, using AUCell
+scoring~\cite{aucell} followed by
+cell-cell-network propagation as implemented in the package.
+
+\subsection{Decision rules}
+
+Five rules were applied to the infercnvpy output.
+(R1) \emph{Forced two-group split}: Leiden clustering~\cite{leiden} of the
+CNV profile,
+clusters merged into two groups, the group with the higher mean score
+declared malignant.
+(R1b) \emph{Highest-scoring cluster}: Leiden clustering at default
+resolution, the single highest-mean-score cluster declared malignant.
+(R2) \emph{Per-cell quantile}: cells above the 90th percentile of the
+per-cell score declared malignant.
+(R3) \emph{Reference SD}: cells whose score exceeds the reference-cell mean
+by more than a fixed multiple of the reference standard deviation; requires a
+reference and is undefined in reference-free mode.
+(R4) \emph{Two-criterion (Tirosh)}~\cite{tirosh2016,puram2017}: cells
+exceeding both a score threshold
+and a threshold on correlation to the mean profile of the top-scoring cells.
+
+\subsection{In-silico aneuploid spike-ins}
+
+For each of three healthy tissues, cells were sampled at random and assigned
+a karyotype consisting of $b$ chromosome arms drawn without replacement, each
+designated gain or loss with equal probability. Counts for genes on an
+affected arm were scaled by $1.5$ (gain) or $0.5$ (loss) before
+re-normalisation, so that the resulting cell has the library size and
+technical characteristics of a real cell with an altered relative expression
+profile. Burdens $b \in \{1,2,3,5,8,12,18\}$ were generated. Untouched cells
+from the same tissue serve as diploid companions. Truth labels and burdens
+were held out of all scoring.
+
+\subsection{Calibration}
+
+Let $s_i$ be the per-cell copy-number score and $d_i$ the log total counts.
+Within each cell type $t$ of the reference set, a regression of $s$ on $d$ is
+fitted and the residual $r_i = s_i - \hat{s}(d_i)$ retained; the empirical
+distribution of $r$ within type $t$ is the null $F_t$. A query cell of type
+$t$ receives $p_i = 1 - F_t(r_i)$ and is called aneuploid if $p_i \le \alpha$.
+Types with fewer than 100 reference cells are pooled into a global null. The
+label-free variant replaces $t$ with the nearest reference centroid among a
+small set of transcriptional archetypes, computed on marker-gene-restricted
+expression.
+
+Leave-one-tissue-out validation fits the null on all healthy tissues except
+the held-out dataset and applies it to the held-out dataset. The
+donor-held-out variant fits the null on all donors of a dataset except one
+and applies it to the held-out donor, cycling over donors contributing at
+least 200 cells.
+
+\subsection{Attribution analysis}
+
+Per-dataset difference profiles were computed as the mean window value of
+falsely called cells minus that of uncalled cells, aggregated into 10-Mb
+bins, retaining bins containing at least five windows. Gene counts per bin
+were computed from the same annotation used by the caller. Cross-tissue
+reproducibility was quantified as the Spearman correlation between bin-level
+difference profiles of different datasets, over bins present in at least six
+datasets. Clustered gene families were tested by comparing the mean
+difference in bins overlapping family loci with the genome-wide distribution.
+
+\subsection{Software and availability}
+
+Analyses used Python 3.13 with scanpy 1.11.5~\cite{scanpy}, anndata 0.12.19, infercnvpy
+0.6.1, ikarus 0.0.3, scikit-learn 1.9.1, numpy 2.4.6 and scipy 1.17.1, and R
+4.4.3 with CopyKAT 1.2.5. All analysis code, result tables and figure scripts
+accompany this manuscript.
+
+\subsection{Data availability}
+
+All datasets are public. The healthy-organ datasets are from the
+multi-organ reference atlas~\cite{tabula} as distributed by the CELLxGENE
+Census. The inflammatory-cohort datasets are CELLxGENE dataset
+\texttt{333491b4-ca9b-4369-8706-38f7bb5bcd46} (Crohn's colon epithelial) and
+\texttt{1ddca82d-2948-4dbe-8bba-be9de7115bb7} (Crohn's colon
+immune)~\cite{kong2023},
+\texttt{75eae05f-4f07-4518-a434-ea0a0d7ac616} (psoriasis
+skin)~\cite{gao2021pso} and
+\texttt{774d77e7-210d-4237-8ca8-8d2bb841a2e4} (ulcerative colitis cohort
+colon)~\cite{smillie2019}. The per-dataset panel definition, including
+download URLs, accompanies the analysis code.
+
+\section*{Figures}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{FIG1}
+\caption{\textbf{Malignant-cell callers assign tumour labels to tumour-free
+tissue.}
+(a) Percentage of cells called malignant in each of 14 tumour-free datasets
+by infercnvpy under the two-criterion (Tirosh) rule, by CopyKAT, and by the
+supervised classifier ikarus. Every call shown is a false positive. The shaded region
+marks datasets from inflammatory-disease cohorts. inferCNV values use the
+immune-reference mode where an immune reference was available and the
+reference-free mode otherwise.
+(b) Pooled false-call rate across the panel for four decision rules applied
+to the same copy-number profiles, in reference-free and immune-reference
+modes. The reference-SD rule is undefined without a reference (n.d.).
+(c) Distribution of the per-cell copy-number score in healthy lung
+(immune-reference mode). The dashed line is the reference-SD cutoff realized
+on this dataset, which lands inside the bulk of the distribution and calls
+6.3\% of cells. The score is unimodal: there is no malignant mode to separate,
+so any cut selects a tail of an otherwise continuous distribution.}
+\label{fig:fp}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{FIG2}
+\caption{\textbf{In-silico positive controls bound what the callers can
+detect.}
+(a) Area under the ROC curve for separating aneuploid from diploid cells
+using the continuous copy-number score, as a function of the number of
+arm-level events imposed, in three tissues.
+(b) Percentage of cells called malignant by ikarus (solid) and CopyKAT
+(dashed) as a function of imposed karyotype burden; burden 0 denotes
+untouched diploid cells from the same sample. Neither caller responds to
+dosage, and in liver and lung CopyKAT calls the highest-burden cells least
+often.
+(c) Detection of aneuploid cells carrying 12--18 arm events, comparing each
+published rule (grey) with a threshold on the continuous score placed at
+exactly that rule's false-call rate (purple). Labels give each rule's
+false-call rate on diploid companion cells. Values are means over three
+spike-in datasets.}
+\label{fig:spike}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{FIG3}
+\caption{\textbf{False calls share a reproducible, gene-density-driven
+pseudo-karyotype.}
+(a) Mean inferred copy-number difference between falsely called and uncalled
+cells, in 10-Mb bins, averaged across the tumour-free panel. Labels mark the
+three strongest bins.
+(b) Apparent copy-number shift against the number of genes per 10-Mb bin,
+with linear fit. Gene-dense regions appear deleted.
+(c) Spearman correlation between bin-level difference profiles of independent
+datasets. Reproducibility across tissues that share no biology indicates a
+technical rather than clonal origin.}
+\label{fig:mech}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{FIG4}
+\caption{\textbf{A cell-type-conditional empirical null gives a verifiable
+false-positive rate.}
+(a) Realized versus nominal false-positive rate under leave-one-tissue-out
+validation, for cell-type-conditioned and label-free archetype-conditioned
+nulls. Mean $\pm$ s.d. across 13 datasets; the protocol-shifted psoriatic
+skin dataset is excluded here and shown in (b) and (c). The dashed line is
+the nominal rate.
+(b) False-call rate per dataset for the two-criterion rule (grey) and for the
+calibrated procedure at $\alpha = 5\%$ (blue). As in Fig.~\ref{fig:fp}a, the
+rule rates use the immune-reference mode where an immune reference was
+available and the reference-free mode otherwise (Crohn's epithelium).
+(c) Effect of the null's provenance: a null fitted on other tissues versus
+one fitted on held-out donors of the same dataset, at $\alpha = 5\%$,
+datasets ordered by the former.}
+\label{fig:cal}
+\end{figure}
+
+\begin{thebibliography}{99}
+\small
+\bibitem{tirosh2016} Tirosh I, et al. Dissecting the multicellular ecosystem of metastatic melanoma by single-cell RNA-seq. \emph{Science} 2016;352:189-196. doi:\href{https://doi.org/10.1126/science.aad0501}{10.1126/science.aad0501}
+\bibitem{tirosh2016b} Tirosh I, et al. Single-cell RNA-seq supports a developmental hierarchy in human oligodendroglioma. \emph{Nature} 2016;539:309-313. doi:\href{https://doi.org/10.1038/nature20123}{10.1038/nature20123}
+\bibitem{patel2014} Patel AP, et al. Single-cell RNA-seq highlights intratumoral heterogeneity in primary glioblastoma. \emph{Science} 2014;344:1396-1401. doi:\href{https://doi.org/10.1126/science.1254257}{10.1126/science.1254257}
+\bibitem{infercnv} inferCNV of the Trinity CTAT Project. Broad Institute of MIT and Harvard. \url{https://github.com/broadinstitute/infercnv}
+\bibitem{copykat} Gao R, et al. Delineating copy number and clonal substructure in human tumors from single-cell transcriptomes. \emph{Nature Biotechnology} 2021;39:599-608. doi:\href{https://doi.org/10.1038/s41587-020-00795-2}{10.1038/s41587-020-00795-2}
+\bibitem{conics} Müller S, et al. CONICS integrates scRNA-seq with DNA sequencing to map gene expression to tumor sub-clones. \emph{Bioinformatics} 2018;34:3217-3219. doi:\href{https://doi.org/10.1093/bioinformatics/bty316}{10.1093/bioinformatics/bty316}
+\bibitem{casper} Serin Harmanci A. CaSpER identifies and visualizes CNV events by integrative analysis of single-cell or bulk RNA-sequencing data. \emph{Nature Communications} 2020;11:89. doi:\href{https://doi.org/10.1038/s41467-019-13779-x}{10.1038/s41467-019-13779-x}
+\bibitem{honeybadger} Fan J, et al. Linking transcriptional and genetic tumor heterogeneity through allele analysis of single-cell RNA-seq data. \emph{Genome Research} 2018;28:1217-1227. doi:\href{https://doi.org/10.1101/gr.228080.117}{10.1101/gr.228080.117}
+\bibitem{numbat} Gao T, et al. Haplotype-aware analysis of somatic copy number variations from single-cell transcriptomes. \emph{Nature Biotechnology} 2022;41:417-426. doi:\href{https://doi.org/10.1038/s41587-022-01468-y}{10.1038/s41587-022-01468-y}
+\bibitem{scevan} De Falco A, et al. A variational algorithm to detect the clonal copy number substructure of tumors from scRNA-seq data. \emph{Nature Communications} 2023;14:1074. doi:\href{https://doi.org/10.1038/s41467-023-36790-9}{10.1038/s41467-023-36790-9}
+\bibitem{ikarus} Dohmen J, et al. Identifying tumor cells at the single-cell level using machine learning. \emph{Genome Biology} 2022;23:123. doi:\href{https://doi.org/10.1186/s13059-022-02683-1}{10.1186/s13059-022-02683-1}
+\bibitem{tabula} The Tabula Sapiens Consortium. The Tabula Sapiens: A multiple-organ, single-cell transcriptomic atlas of humans. \emph{Science} 2022;376:eabl4896. doi:\href{https://doi.org/10.1126/science.abl4896}{10.1126/science.abl4896}
+\bibitem{kong2023} Kong L, et al. The landscape of immune dysregulation in Crohn’s disease revealed through single-cell transcriptomic profiling in the ileum and colon. \emph{Immunity} 2023;56:444-458.e5. doi:\href{https://doi.org/10.1016/j.immuni.2023.01.002}{10.1016/j.immuni.2023.01.002}
+\bibitem{gao2021pso} Gao Y, et al. Single cell transcriptional zonation of human psoriasis skin identifies an alternative immunoregulatory axis conducted by skin resident cells. \emph{Cell Death \& Disease} 2021;12:450. doi:\href{https://doi.org/10.1038/s41419-021-03724-6}{10.1038/s41419-021-03724-6}
+\bibitem{smillie2019} Smillie CS, et al. Intra- and Inter-cellular Rewiring of the Human Colon during Ulcerative Colitis. \emph{Cell} 2019;178:714-730.e22. doi:\href{https://doi.org/10.1016/j.cell.2019.06.029}{10.1016/j.cell.2019.06.029}
+\bibitem{infercnvpy} infercnvpy: infer copy number variation (CNV) from single-cell transcriptomics data. \url{https://github.com/icbi-lab/infercnvpy}
+\bibitem{aucell} Aibar S, et al. SCENIC: single-cell regulatory network inference and clustering. \emph{Nature Methods} 2017;14:1083-1086. doi:\href{https://doi.org/10.1038/nmeth.4463}{10.1038/nmeth.4463}
+\bibitem{leiden} Traag VA, Waltman L, van Eck NJ. From Louvain to Leiden: guaranteeing well-connected communities. \emph{Scientific Reports} 2019;9:5233. doi:\href{https://doi.org/10.1038/s41598-019-41695-z}{10.1038/s41598-019-41695-z}
+\bibitem{puram2017} Puram SV, et al. Single-Cell Transcriptomic Analysis of Primary and Metastatic Tumor Ecosystems in Head and Neck Cancer. \emph{Cell} 2017;171:1611-1624.e24. doi:\href{https://doi.org/10.1016/j.cell.2017.10.044}{10.1016/j.cell.2017.10.044}
+\bibitem{scanpy} Wolf FA, Angerer P, Theis FJ. SCANPY: large-scale single-cell gene expression data analysis. \emph{Genome Biology} 2018;19:15. doi:\href{https://doi.org/10.1186/s13059-017-1382-0}{10.1186/s13059-017-1382-0}
+\end{thebibliography}
+
+\end{document}

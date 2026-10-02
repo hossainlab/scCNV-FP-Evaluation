@@ -1,0 +1,794 @@
+{
+ "ff45e623-7f5f-46e3-b47d-56be0341f66b": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Pancreas",
+  "cells": 14140,
+  "tissue": [
+   "endocrine pancreas",
+   "exocrine pancreas"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/ba587dee-e050-4a31-bcb8-05e5418f9086.h5ad",
+  "mb": 740.3
+ },
+ "f01bdd17-4902-40f5-86e3-240d66dd2587": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Salivary_Gland",
+  "cells": 39821,
+  "tissue": [
+   "parotid gland",
+   "sublingual gland",
+   "submandibular gland"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/a9f49247-9866-422e-a9c3-d315f6e99369.h5ad",
+  "mb": 1801.7
+ },
+ "ec6ef004-5f30-4a40-b282-980cca20a561": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Testis",
+  "cells": 7513,
+  "tissue": [
+   "testis"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/09e3ae14-f355-4ed7-ad81-787b587c8a16.h5ad",
+  "mb": 385.4
+ },
+ "e6a11140-2545-46bc-929e-da243eed2cae": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Heart",
+  "cells": 25832,
+  "tissue": [
+   "cardiac atrium",
+   "cardiac ventricle",
+   "heart"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/82197577-7914-45c0-9fde-6597a1da920f.h5ad",
+  "mb": 1164.8
+ },
+ "e5c63d94-593c-4338-a489-e1048599e751": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Bladder",
+  "cells": 66385,
+  "tissue": [
+   "bladder organ"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/8ffc335d-36fa-461e-be47-cd6503833420.h5ad",
+  "mb": 3317.0
+ },
+ "d8732da6-8d1d-42d9-b625-f2416c30054b": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Trachea",
+  "cells": 22671,
+  "tissue": [
+   "trachea"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/03500d0b-e9ae-42e0-9ae0-576a551099dc.h5ad",
+  "mb": 965.1
+ },
+ "d77ec7d6-ef2e-49d6-9e79-05b7f8881484": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Prostate",
+  "cells": 21030,
+  "tissue": [
+   "prostate gland"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/4a289bf1-97c2-4616-8e1c-585088d28c3e.h5ad",
+  "mb": 899.4
+ },
+ "d45aca3a-ddb8-4185-a462-eff1e0c7af2e": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Ear",
+  "cells": 3055,
+  "tissue": [
+   "crista ampullaris",
+   "utricle of membranous labyrinth"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/eef916d5-41c0-434f-a50c-617aa1413987.h5ad",
+  "mb": 180.8
+ },
+ "cee11228-9f0b-4e57-afe2-cfe15ee56312": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Spleen",
+  "cells": 70448,
+  "tissue": [
+   "spleen"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "10x 5' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/5498457f-6a18-4766-b9a3-a2c8c4662703.h5ad",
+  "mb": 2654.7
+ },
+ "c5d88abe-f23a-45fa-a534-788985e93dad": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Immune",
+  "cells": 592317,
+  "tissue": [
+   "abdominal aorta",
+   "adipose tissue",
+   "anterior part of tongue"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "10x 5' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/78b60b70-129a-4a6d-b15f-825b241eec66.h5ad",
+  "mb": 19773.8
+ },
+ "bb78adbb-1428-4468-bad0-63602bb974e9": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Ovary",
+  "cells": 48951,
+  "tissue": [
+   "left ovary",
+   "ovary",
+   "right ovary"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/6ad78e84-6715-458d-95b4-69e8509cd785.h5ad",
+  "mb": 1815.9
+ },
+ "b806712d-18b0-454c-a0fe-9909159e07c7": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Germline",
+  "cells": 7276,
+  "tissue": [
+   "left ovary",
+   "ovary",
+   "right ovary"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/fe13f5e9-7ca1-430c-a258-1c2a8868ed22.h5ad",
+  "mb": 380.5
+ },
+ "a68b64d8-aee3-4947-81b7-36b8fe5a44d2": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Stromal",
+  "cells": 232684,
+  "tissue": [
+   "abdominal aorta",
+   "adipose tissue",
+   "anterior part of tongue"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "10x 5' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/2776ea76-6919-458a-b82a-bba8bb6ce5a9.h5ad",
+  "mb": 10060.1
+ },
+ "a357414d-2042-4eb5-95f0-c58604a18bdd": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Small_Intestine",
+  "cells": 42036,
+  "tissue": [
+   "duodenum",
+   "ileum",
+   "jejunum"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/6db4dfe6-d421-4287-a9dc-22eaa59be966.h5ad",
+  "mb": 1807.8
+ },
+ "a2d4d33e-4c62-4361-b80a-9be53d2e50e8": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Vasculature",
+  "cells": 42650,
+  "tissue": [
+   "abdominal aorta",
+   "aorta",
+   "coronary artery"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/5d54a606-3cd9-4164-b862-a3c51e622790.h5ad",
+  "mb": 2183.0
+ },
+ "a0754256-f44b-4c4a-962c-a552e47d3fdc": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Eye",
+  "cells": 34273,
+  "tissue": [
+   "anterior segment of eyeball",
+   "chorioretinal region",
+   "conjunctiva"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/e9b8ea4b-7901-4992-94c7-8e85ccd06fb5.h5ad",
+  "mb": 1386.0
+ },
+ "9ba03780-4b13-44bc-a7d3-ce532ea0a856": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Stomach",
+  "cells": 33064,
+  "tissue": [
+   "mucosa of stomach",
+   "muscularis mucosae of stomach",
+   "stomach"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/3e8bd2b2-fe53-4b95-abb2-ce971b4f1c14.h5ad",
+  "mb": 1075.0
+ },
+ "983d5ec9-40e8-4512-9e65-a572a9c486cb": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Blood",
+  "cells": 85233,
+  "tissue": [
+   "blood"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "10x 5' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/1bf55482-ad49-446a-87c6-f3442bebcef1.h5ad",
+  "mb": 2568.9
+ },
+ "97a17473-e2b1-4f31-a544-44a60773e2dd": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Epithelium",
+  "cells": 228032,
+  "tissue": [
+   "anterior part of tongue",
+   "anterior segment of eyeball",
+   "ascending colon"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "10x 5' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/1536d673-07ba-4f84-abd1-7e08c21a8c30.h5ad",
+  "mb": 11604.0
+ },
+ "7357cee7-9f7f-4ab0-8cec-90de8f047e38": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Large_Intestine",
+  "cells": 30084,
+  "tissue": [
+   "ascending colon",
+   "large intestine",
+   "sigmoid colon"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/81781bd2-7a71-43a8-ab31-2a9009c1aea6.h5ad",
+  "mb": 1022.0
+ },
+ "6ec405bb-4727-4c6d-ab4e-01fe489af7ea": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Uterus",
+  "cells": 22029,
+  "tissue": [
+   "endometrium",
+   "myometrium",
+   "uterus"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/ec18d0d1-3b1b-4413-b011-0078c8d69bd3.h5ad",
+  "mb": 896.1
+ },
+ "6e4acdae-59ef-452b-a6d4-260cba368586": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Neural",
+  "cells": 2685,
+  "tissue": [
+   "anterior segment of eyeball",
+   "ascending colon",
+   "cornea"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/45d6f910-8ca8-4b61-9fe1-7ebad766c96b.h5ad",
+  "mb": 128.4
+ },
+ "6d41668c-168c-4500-b06a-4674ccf3e19d": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Liver",
+  "cells": 22214,
+  "tissue": [
+   "liver"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/a4b3a49e-062b-4e3f-8915-02f40607651f.h5ad",
+  "mb": 834.5
+ },
+ "5e5e7a2f-8f1c-42ac-90dc-b4f80f38e84c": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Fat",
+  "cells": 94415,
+  "tissue": [
+   "adipose tissue",
+   "brown adipose tissue",
+   "subcutaneous adipose tissue"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/8115812f-9acf-4f62-b15f-bde18086a1c8.h5ad",
+  "mb": 3689.1
+ },
+ "5a11f879-d1ef-458a-910c-9b0bdfca5ebf": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Endothelium",
+  "cells": 73195,
+  "tissue": [
+   "abdominal aorta",
+   "adipose tissue",
+   "anterior part of tongue"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "10x 5' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/00ad3c95-bdab-4c75-ba4d-44f7545db691.h5ad",
+  "mb": 3034.4
+ },
+ "55cf0ea3-9d2b-4294-871e-bb4b49a79fc7": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Tongue",
+  "cells": 38754,
+  "tissue": [
+   "anterior part of tongue",
+   "posterior part of tongue",
+   "tongue"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/07cf9c5f-6e79-4422-a4de-4427f0f4a76d.h5ad",
+  "mb": 2012.1
+ },
+ "53d208b0-2cfd-4366-9866-c3c6114081bc": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - All Cells",
+  "cells": 1136218,
+  "tissue": [
+   "abdominal aorta",
+   "adipose tissue",
+   "anterior part of tongue"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "10x 5' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/1c88f927-bcbb-4bb1-9881-281842945a2d.h5ad",
+  "mb": 45013.7
+ },
+ "4f1555bc-4664-46c3-a606-78d34dd10d92": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Bone_Marrow",
+  "cells": 27112,
+  "tissue": [
+   "bone marrow"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "10x 5' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/4aedb645-7487-4ab0-ad95-ee4db1b8eccd.h5ad",
+  "mb": 1030.9
+ },
+ "2ba40233-8576-4dec-a5f1-2adfa115e2dc": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Mammary",
+  "cells": 30936,
+  "tissue": [
+   "mammary gland"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/33b25f68-a9d6-4643-9283-653e937ae608.h5ad",
+  "mb": 1334.2
+ },
+ "2423ce2c-3149-4cca-a2ff-cf682ea29b5f": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Kidney",
+  "cells": 11376,
+  "tissue": [
+   "cortex of kidney",
+   "kidney"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/76b6cf23-56db-4eac-8ee8-d84ce64c0395.h5ad",
+  "mb": 450.0
+ },
+ "1c9eb291-6d31-47e1-96b2-129b5e1ae64f": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Muscle",
+  "cells": 46772,
+  "tissue": [
+   "muscle of abdomen",
+   "muscle of pelvic diaphragm"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/4919a450-62fb-4741-b750-5591443edee8.h5ad",
+  "mb": 2050.4
+ },
+ "18eb630b-a754-4111-8cd4-c24ec80aa5ec": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Lymph_Node",
+  "cells": 129062,
+  "tissue": [
+   "inguinal lymph node",
+   "lymph node",
+   "mesenteric lymph node"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "10x 5' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/6dd28080-1d36-4905-8b44-a9954a4438a2.h5ad",
+  "mb": 4086.6
+ },
+ "0d2ee4ac-05ee-40b2-afb6-ebb584caa867": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Lung",
+  "cells": 65847,
+  "tissue": [
+   "lung"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/fddf43a3-b7c8-49e9-ac0a-5e24b390849f.h5ad",
+  "mb": 3196.8
+ },
+ "0ced5e76-6040-47ff-8a72-93847965afc0": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Thymus",
+  "cells": 42729,
+  "tissue": [
+   "thymus"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "10x 5' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/b58baee9-3e90-4491-aa16-eb5818a6db27.h5ad",
+  "mb": 1722.5
+ },
+ "0041b9c3-6a49-4bf7-8514-9bc7190067a7": {
+  "tag": "TS",
+  "title": "Tabula Sapiens - Skin",
+  "cells": 17786,
+  "tissue": [
+   "buccal mucosa",
+   "skin of abdomen",
+   "skin of body"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v3",
+   "Smart-seq2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/c240d5bc-a521-4330-a76b-7d566e939d87.h5ad",
+  "mb": 508.7
+ },
+ "4dd00779-7f73-4f50-89bb-e2d3c6b71b18": {
+  "tag": "UC_smillie",
+  "title": "Intra- and Inter-cellular Rewiring of the Human Colon during Ulcerativ",
+  "cells": 34772,
+  "tissue": [
+   "caecum epithelium",
+   "colonic epithelium",
+   "transverse colon epithelium"
+  ],
+  "disease": [
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v1",
+   "10x 3' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/774d77e7-210d-4237-8ca8-8d2bb841a2e4.h5ad",
+  "mb": 223.4
+ },
+ "b796f27e-e191-4f2d-b40c-e6ac58163b4e": {
+  "tag": "psoriasis",
+  "title": "adult human skin cells of health and psoriasis vulgaris",
+  "cells": 24126,
+  "tissue": [
+   "skin of body"
+  ],
+  "disease": [
+   "normal",
+   "psoriasis"
+  ],
+  "assay": [
+   "10x 3' v3"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/75eae05f-4f07-4518-a434-ea0a0d7ac616.h5ad",
+  "mb": 174.7
+ },
+ "fe4b89d5-461e-440c-a5a8-621b37b122c0": {
+  "tag": "crohn",
+  "title": "TI epithelial",
+  "cells": 154136,
+  "tissue": [
+   "epithelium of small intestine",
+   "ileal epithelium",
+   "ileum"
+  ],
+  "disease": [
+   "Crohn disease",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/6a6b7339-106f-420b-95ae-c8d2d91f9945.h5ad",
+  "mb": 946.5
+ },
+ "a37f857c-779f-464e-9310-3db43a1811e7": {
+  "tag": "crohn",
+  "title": "TI immune",
+  "cells": 201072,
+  "tissue": [
+   "epithelium of small intestine",
+   "ileal epithelium",
+   "ileum"
+  ],
+  "disease": [
+   "Crohn disease",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/c2f4e272-b36c-4794-a215-711d84d3112a.h5ad",
+  "mb": 775.0
+ },
+ "6cf3634d-e911-44ad-bf52-c747a9af3c01": {
+  "tag": "crohn",
+  "title": "colon stromal",
+  "cells": 39433,
+  "tissue": [
+   "ascending colon",
+   "caecum lamina propria",
+   "colon"
+  ],
+  "disease": [
+   "Crohn disease",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v1",
+   "10x 3' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/7e56f1b8-a16a-450d-9938-1d084bc52841.h5ad",
+  "mb": 189.7
+ },
+ "5ce42b38-d867-487f-9b40-e8bb00b21d0b": {
+  "tag": "crohn",
+  "title": "colon epithelial",
+  "cells": 97788,
+  "tissue": [
+   "ascending colon",
+   "caecum epithelium",
+   "caecum lamina propria"
+  ],
+  "disease": [
+   "Crohn disease",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v1",
+   "10x 3' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/333491b4-ca9b-4369-8706-38f7bb5bcd46.h5ad",
+  "mb": 636.7
+ },
+ "518d9049-2a76-44f8-8abc-1e2b59ab5ba1": {
+  "tag": "crohn",
+  "title": "colon immune",
+  "cells": 152509,
+  "tissue": [
+   "ascending colon",
+   "caecum epithelium",
+   "caecum lamina propria"
+  ],
+  "disease": [
+   "Crohn disease",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v1",
+   "10x 3' v2"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/1ddca82d-2948-4dbe-8bba-be9de7115bb7.h5ad",
+  "mb": 580.4
+ },
+ "0f4865d5-8000-4f68-8ac7-f5efea9e5e70": {
+  "tag": "crohn",
+  "title": "TI stromal",
+  "cells": 75695,
+  "tissue": [
+   "ileal epithelium",
+   "ileum",
+   "ileum lamina propria"
+  ],
+  "disease": [
+   "Crohn disease",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ],
+  "url": "https://datasets.cellxgene.cziscience.com/34217af0-2b64-464b-9a5c-59b292938b37.h5ad",
+  "mb": 264.1
+ }
+}

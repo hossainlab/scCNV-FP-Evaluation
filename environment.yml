@@ -1,0 +1,27 @@
+# Full analysis environment (callers + figures).
+# Versions marked "used" are the ones reported in the manuscript or embedded in the
+# published figure files; the rest were not recorded and are left unpinned.
+name: operon-audit
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - h5py
+  - pyarrow
+  - requests
+  - anndata
+  - scanpy
+  - matplotlib=3.11.1      # used (published figure PDFs)
+  - r-base=4.4.3           # used (CopyKAT runs)
+  - r-matrix
+  - r-jsonlite
+  - r-remotes
+  - pip
+  - pip:
+      - infercnvpy==0.6.1  # used
+      - ikarus==0.0.3      # used

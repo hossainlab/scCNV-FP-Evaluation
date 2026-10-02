@@ -1,0 +1,20 @@
+{
+ "Benchmarking scRNA-seq copy number variation callers.": {
+  "doi": "10.1038/s41467-025-62359-9",
+  "year": "2025",
+  "journal": "Nature communications",
+  "abstract": "Copy number variations (CNVs), the gain or loss of genomic regions, are associated with disease, especially cancer. Single cell technologies offer new possibilities to capture within-sample heterogeneity of CNVs and identify subclones relevant for tumor progression and treatment outcome. Several computational tools have been developed to identify CNVs from scRNA-seq data. However, an independent benchmarking of them is lacking. Here, we evaluate six popular methods in their ability to correctly identify ground truth CNVs, euploid cells and subclonal structures in 21 scRNA-seq datasets. We discover dataset-specific factors influencing the performance, including dataset size, the number and type of CNVs in the sample and the choice of the reference dataset. Methods which include allelic information perform more robustly for large droplet-based datasets, but require higher runtime. Furthermore, the methods differ in their additional functionalities. We offer a benchmarking pipeline to identify the optimal method for new datasets, and improve methods' performance."
+ },
+ "Benchmarking copy number aberrations inference tools using s": {
+  "doi": "10.1093/bib/bbaf076",
+  "year": "2025",
+  "journal": "Briefings in bioinformatics",
+  "abstract": "Copy number alterations (CNAs) are an important type of genomic variation which play a crucial role in the initiation and progression of cancer. With the explosion of single-cell RNA sequencing (scRNA-seq), several computational methods have been developed to infer CNAs from scRNA-seq studies. However, to date, no independent studies have comprehensively benchmarked their performance. Herein, we evaluated five state-of-the-art methods based on their performance in tumor versus normal cell classification; CNAs profile accuracy, tumor subclone inference, and aneuploidy identification in non-malignant cells. Our results showed that Numbat outperformed others across most evaluation criteria, while CopyKAT excelled in scenarios when expression matrix alone was used as input. In specific tasks, SCEVAN showed the best performance in clonal breakpoint detection and Numbat showed high sensitivity in copy number neutral LOH (cnLOH) detection. Additionally, we investigated how referencing settings, inclusion of tumor microenvironment cells, tumor type, and tumor purity impact the performance of these tools. This study provides a valuable guideline for researchers in selecting the appropriate methods for their datasets."
+ },
+ "Identification of malignant cells in single-cell transcripto": {
+  "doi": "10.1038/s42003-025-08695-4",
+  "year": "2025",
+  "journal": "Communications biology",
+  "abstract": "Single-cell transcriptomics has significantly advanced our ability to uncover the cellular heterogeneity of tumors. A key challenge in single-cell transcriptomics is identifying cancer cells and, in particular, distinguishing them from non-malignant cells of the same cell lineage. Focusing on features that can be measured by single-cell transcriptomics, this review explores the molecular aberrations of cancer cells and their observable readouts at the RNA level. Identification of bona fide cancer cells typically relies on three main features, alone or in combination: i) expression of cell-of-origin marker genes; ii) inter-patient tumor heterogeneity; iii) inferred copy-number alterations. Depending on the cancer type, however, alternative or additional features may be necessary for accurate classification, such as single-nucleotide mutations, gene fusions, increased cell proliferation, and altered activation of signaling pathways. We summarize computational approaches commonly applied in single-cell analysis of tumoral samples, as well as less explored features that may aid the identification of malignant cells."
+ }
+}

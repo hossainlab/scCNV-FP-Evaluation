@@ -1,0 +1,15 @@
+dataset,n,n_fp,fpr_pct,type_null_frac
+TS_Bone_Marrow,3003,0,0.0,0.86
+TS_Kidney,1315,0,0.0,0.95
+TS_Large_Intestine,3005,0,0.0,0.88
+TS_Liver,2995,0,0.0,0.87
+TS_Lung,3002,0,0.0,0.9
+TS_Pancreas,1887,0,0.0,0.87
+TS_Skin,2301,4,0.17,0.82
+TS_Small_Intestine,2995,0,0.0,0.97
+TS_Spleen,2997,1,0.03,0.85
+TS_Stomach,2995,0,0.0,0.9
+PSO_skin,2992,832,27.81,0.88
+UC_colon,1782,0,0.0,0.88
+CD_epithelial,2249,0,0.0,0.98
+CD_immune,3010,157,5.22,0.64

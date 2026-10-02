@@ -1,0 +1,134 @@
+[
+ {
+  "name": "TS_Kidney",
+  "group": "healthy",
+  "url": "https://datasets.cellxgene.cziscience.com/76b6cf23-56db-4eac-8ee8-d84ce64c0395.h5ad",
+  "mb": 450.0,
+  "assay": [
+   "10x 3' v3"
+  ],
+  "cells": 11376
+ },
+ {
+  "name": "TS_Skin",
+  "group": "healthy",
+  "url": "https://datasets.cellxgene.cziscience.com/c240d5bc-a521-4330-a76b-7d566e939d87.h5ad",
+  "mb": 508.7,
+  "assay": [
+   "10x 3' v3"
+  ],
+  "cells": 17786
+ },
+ {
+  "name": "TS_Pancreas",
+  "group": "healthy",
+  "url": "https://datasets.cellxgene.cziscience.com/ba587dee-e050-4a31-bcb8-05e5418f9086.h5ad",
+  "mb": 740.3,
+  "assay": [
+   "10x 3' v3"
+  ],
+  "cells": 14140
+ },
+ {
+  "name": "TS_Liver",
+  "group": "healthy",
+  "url": "https://datasets.cellxgene.cziscience.com/a4b3a49e-062b-4e3f-8915-02f40607651f.h5ad",
+  "mb": 834.5,
+  "assay": [
+   "10x 3' v3"
+  ],
+  "cells": 22214
+ },
+ {
+  "name": "TS_Large_Intestine",
+  "group": "healthy",
+  "url": "https://datasets.cellxgene.cziscience.com/81781bd2-7a71-43a8-ab31-2a9009c1aea6.h5ad",
+  "mb": 1022.0,
+  "assay": [
+   "10x 3' v3"
+  ],
+  "cells": 30084
+ },
+ {
+  "name": "TS_Small_Intestine",
+  "group": "healthy",
+  "url": "https://datasets.cellxgene.cziscience.com/6db4dfe6-d421-4287-a9dc-22eaa59be966.h5ad",
+  "mb": 1807.8,
+  "assay": [
+   "10x 3' v3"
+  ],
+  "cells": 42036
+ },
+ {
+  "name": "TS_Stomach",
+  "group": "healthy",
+  "url": "https://datasets.cellxgene.cziscience.com/3e8bd2b2-fe53-4b95-abb2-ce971b4f1c14.h5ad",
+  "mb": 1075.0,
+  "assay": [
+   "10x 3' v3"
+  ],
+  "cells": 33064
+ },
+ {
+  "name": "TS_Bone_Marrow",
+  "group": "healthy",
+  "url": "https://datasets.cellxgene.cziscience.com/4aedb645-7487-4ab0-ad95-ee4db1b8eccd.h5ad",
+  "mb": 1030.9,
+  "assay": [
+   "10x 3' v3"
+  ],
+  "cells": 27112
+ },
+ {
+  "name": "TS_Spleen",
+  "group": "healthy",
+  "url": "https://datasets.cellxgene.cziscience.com/5498457f-6a18-4766-b9a3-a2c8c4662703.h5ad",
+  "mb": 2654.7,
+  "assay": [
+   "10x 3' v3"
+  ],
+  "cells": 70448
+ },
+ {
+  "name": "TS_Lung",
+  "group": "healthy",
+  "url": "https://datasets.cellxgene.cziscience.com/fddf43a3-b7c8-49e9-ac0a-5e24b390849f.h5ad",
+  "mb": 3196.8,
+  "assay": [
+   "10x 3' v3"
+  ],
+  "cells": 65847
+ },
+ {
+  "name": "UC_colon",
+  "group": "inflamed",
+  "url": "https://datasets.cellxgene.cziscience.com/774d77e7-210d-4237-8ca8-8d2bb841a2e4.h5ad",
+  "mb": 223.4,
+  "assay": null,
+  "cells": 34772
+ },
+ {
+  "name": "PSO_skin",
+  "group": "inflamed",
+  "url": "https://datasets.cellxgene.cziscience.com/75eae05f-4f07-4518-a434-ea0a0d7ac616.h5ad",
+  "mb": 174.7,
+  "assay": null,
+  "cells": 24126
+ },
+ {
+  "name": "CD_epithelial",
+  "group": "inflamed",
+  "url": "https://datasets.cellxgene.cziscience.com/333491b4-ca9b-4369-8706-38f7bb5bcd46.h5ad",
+  "mb": 636.7,
+  "assay": null,
+  "cells": 97788
+ },
+ {
+  "name": "CD_immune",
+  "group": "inflamed",
+  "url": "https://datasets.cellxgene.cziscience.com/1ddca82d-2948-4dbe-8bba-be9de7115bb7.h5ad",
+  "mb": 580.4,
+  "assay": null,
+  "cells": 152509
+ }
+]

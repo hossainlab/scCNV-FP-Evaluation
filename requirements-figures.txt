@@ -1,0 +1,7 @@
+# Minimal environment to regenerate Figures 1-4 from the shipped tables in results/
+# (verified with Python 3.11).
+numpy
+pandas
+scipy
+pyarrow
+matplotlib==3.11.1

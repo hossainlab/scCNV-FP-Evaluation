@@ -1,0 +1,15 @@
+group,dataset,n,tumour_pct
+healthy,TS_Bone_Marrow,3003,62.54
+healthy,TS_Kidney,1315,0.0
+healthy,TS_Large_Intestine,3005,18.94
+healthy,TS_Liver,2995,91.75
+healthy,TS_Lung,3002,6.3
+healthy,TS_Pancreas,1887,27.08
+healthy,TS_Skin,2301,3.09
+healthy,TS_Small_Intestine,2995,0.0
+healthy,TS_Spleen,2997,2.17
+healthy,TS_Stomach,2995,7.18
+inflamed,CD_epithelial,2249,100.0
+inflamed,CD_immune,3010,1.5
+inflamed,PSO_skin,2992,46.79
+inflamed,UC_colon,1782,68.91

@@ -1,0 +1,72 @@
+{
+ "n_datasets": 14,
+ "n_cells_audited": 36528,
+ "n_donors": 76,
+ "n_spike_cells": 8994,
+ "tirosh_refimm_range": [
+  0.5,
+  19.3
+ ],
+ "twogroup_range": [
+  4.5,
+  78.0
+ ],
+ "ikarus_range": [
+  0.0,
+  100.0
+ ],
+ "ikarus_n_over_50": 4,
+ "ikarus_pooled": 30.6,
+ "auc_b1": 0.531,
+ "auc_b18": 0.849,
+ "matched": {
+  "R1_twogroup": [
+   27.9,
+   26.6,
+   21.5
+  ],
+  "R1b_topcluster": [
+   2.3,
+   5.3,
+   12.6
+  ],
+  "R4_tirosh": [
+   5.4,
+   5.8,
+   5.1
+  ],
+  "ikarus": [
+   30.9,
+   30.2,
+   28.8
+  ],
+  "score@FPR(R1_twogroup)": [
+   27.9,
+   46.0,
+   65.0
+  ],
+  "score@FPR(R1b_topcluster)": [
+   3.5,
+   6.7,
+   10.4
+  ],
+  "score@FPR(R4_tirosh)": [
+   5.4,
+   12.9,
+   23.9
+  ],
+  "score@FPR(ikarus)": [
+   30.9,
+   39.3,
+   48.8
+  ]
+ },
+ "density_rho": -0.5287910508204766,
+ "density_p": 1.9832670806521117e-21,
+ "cross_tissue_rho_median": 0.54,
+ "cal_05_median": 0.03,
+ "cal_05_max": 0.43,
+ "pso_cross": 27.1,
+ "pso_matched": 0.03,
+ "matched_max": 3.67
+}

@@ -1,0 +1,46 @@
+{
+ "UC_colon": {
+  "collection": "Intra- and Inter-cellular Rewiring of the Human Colon during Ulcerative Colitis",
+  "dataset_title": null,
+  "doi": "10.1016/j.cell.2019.06.029",
+  "journal": "Cell",
+  "year": 2019,
+  "authors": [
+   "Smillie",
+   "Biton"
+  ]
+ },
+ "PSO_skin": {
+  "collection": "Adult human skin cells of health and psoriasis vulgaris",
+  "dataset_title": null,
+  "doi": "10.1038/s41419-021-03724-6",
+  "journal": "Cell Death Dis",
+  "year": 2021,
+  "authors": [
+   "Gao",
+   "Yao"
+  ]
+ },
+ "CD_epithelial": {
+  "collection": "The landscape of immune dysregulation in Crohn\u2019s disease revealed through single-cell transcriptomic profiling in the ileum and colon",
+  "dataset_title": null,
+  "doi": "10.1016/j.immuni.2023.01.002",
+  "journal": "Immunity",
+  "year": 2023,
+  "authors": [
+   "Kong",
+   "Pokatayev"
+  ]
+ },
+ "CD_immune": {
+  "collection": "The landscape of immune dysregulation in Crohn\u2019s disease revealed through single-cell transcriptomic profiling in the ileum and colon",
+  "dataset_title": null,
+  "doi": "10.1016/j.immuni.2023.01.002",
+  "journal": "Immunity",
+  "year": 2023,
+  "authors": [
+   "Kong",
+   "Pokatayev"
+  ]
+ }
+}

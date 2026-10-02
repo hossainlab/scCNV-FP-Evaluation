@@ -1,0 +1,479 @@
+{
+ "TS_Kidney": {
+  "group": "healthy",
+  "assay": [
+   "10x 3' v3"
+  ],
+  "n_cells": 1315,
+  "n_genes": 60606,
+  "n_cell_types": 8,
+  "n_donors": 1,
+  "diseases": [
+   "normal"
+  ],
+  "cell_types": {
+   "B cell": 200,
+   "CD4-positive, alpha-beta T cell": 200,
+   "CD8-positive, alpha-beta T cell": 200,
+   "kidney epithelial cell": 200,
+   "macrophage": 200,
+   "natural killer cell": 161,
+   "endothelial cell": 100,
+   "monocyte": 54
+  },
+  "dl_s": 30.7
+ },
+ "TS_Skin": {
+  "group": "healthy",
+  "assay": [
+   "10x 3' v3"
+  ],
+  "n_cells": 2301,
+  "n_genes": 60606,
+  "n_cell_types": 14,
+  "n_donors": 4,
+  "diseases": [
+   "normal"
+  ],
+  "cell_types": {
+   "CD4-positive, alpha-beta T cell": 200,
+   "CD8-positive, alpha-beta T cell": 200,
+   "T cell": 200,
+   "endothelial cell": 200,
+   "fibroblast": 200,
+   "macrophage": 200,
+   "smooth muscle cell": 200,
+   "mast cell": 200,
+   "neutrophil": 200,
+   "regulatory T cell": 200,
+   "plasma cell": 83,
+   "melanocyte": 77,
+   "Langerhans cell": 71,
+   "sebocyte": 70
+  },
+  "dl_s": 8.3
+ },
+ "TS_Pancreas": {
+  "group": "healthy",
+  "assay": [
+   "10x 3' v3"
+  ],
+  "n_cells": 1887,
+  "n_genes": 60606,
+  "n_cell_types": 13,
+  "n_donors": 3,
+  "diseases": [
+   "normal"
+  ],
+  "cell_types": {
+   "CD8-positive, alpha-beta T cell": 200,
+   "endothelial cell": 200,
+   "classical monocyte": 200,
+   "pancreatic stellate cell": 200,
+   "macrophage": 200,
+   "pancreatic ductal cell": 200,
+   "pancreatic acinar cell": 200,
+   "fibroblast": 193,
+   "type B pancreatic cell": 102,
+   "B cell": 53,
+   "natural killer cell": 50,
+   "pancreatic A cell": 47,
+   "intermediate monocyte": 42
+  },
+  "dl_s": 13.1
+ },
+ "TS_Liver": {
+  "group": "healthy",
+  "assay": [
+   "10x 3' v3"
+  ],
+  "n_cells": 2995,
+  "n_genes": 60606,
+  "n_cell_types": 20,
+  "n_donors": 4,
+  "diseases": [
+   "normal"
+  ],
+  "cell_types": {
+   "CD4-positive, alpha-beta T cell": 172,
+   "CD8-positive, alpha-beta T cell": 172,
+   "classical monocyte": 172,
+   "endothelial cell": 172,
+   "plasma cell": 172,
+   "erythrocyte": 172,
+   "hepatocyte": 172,
+   "hepatic stellate cell": 172,
+   "intermediate monocyte": 172,
+   "intrahepatic cholangiocyte": 172,
+   "mature NK T cell": 172,
+   "macrophage": 172,
+   "monocyte": 172,
+   "neutrophil": 172,
+   "natural killer cell": 172,
+   "fibroblast": 127,
+   "B cell": 113,
+   "non-classical monocyte": 96,
+   "myeloid dendritic cell": 44,
+   "hematopoietic precursor cell": 35
+  },
+  "dl_s": 15.3
+ },
+ "TS_Large_Intestine": {
+  "group": "healthy",
+  "assay": [
+   "10x 3' v3"
+  ],
+  "n_cells": 3005,
+  "n_genes": 60606,
+  "n_cell_types": 24,
+  "n_donors": 5,
+  "diseases": [
+   "normal"
+  ],
+  "cell_types": {
+   "B cell": 151,
+   "BEST4+ enterocyte": 151,
+   "CD4-positive, alpha-beta T cell": 151,
+   "CD8-positive, alpha-beta T cell": 151,
+   "colon endothelial cell": 151,
+   "colon macrophage": 151,
+   "enterocyte of epithelium of large intestine": 151,
+   "enteroglial cell": 151,
+   "fibroblast": 151,
+   "gamma-delta T cell": 151,
+   "intestinal crypt stem cell of colon": 151,
+   "large intestine goblet cell": 151,
+   "mast cell": 151,
+   "myeloid leukocyte": 151,
+   "plasma cell": 151,
+   "naive thymus-derived CD4-positive, alpha-beta T cell": 151,
+   "transit amplifying cell of colon": 151,
+   "regulatory T cell": 151,
+   "tuft cell of colon": 103,
+   "monocyte": 46,
+   "myofibroblast cell": 38,
+   "mature NK T cell": 35,
+   "paneth cell of colon": 33,
+   "type L enteroendocrine cell": 32
+  },
+  "dl_s": 16.8
+ },
+ "TS_Small_Intestine": {
+  "group": "healthy",
+  "assay": [
+   "10x 3' v3"
+  ],
+  "n_cells": 2995,
+  "n_genes": 60606,
+  "n_cell_types": 29,
+  "n_donors": 5,
+  "diseases": [
+   "normal"
+  ],
+  "cell_types": {
+   "B cell": 126,
+   "BEST4+ enterocyte": 126,
+   "CD4-positive, alpha-beta T cell": 126,
+   "CD8-positive, alpha-beta T cell": 126,
+   "activated CD4-positive, alpha-beta T cell": 126,
+   "activated CD8-positive, alpha-beta T cell": 126,
+   "enterocyte of epithelium proper of jejunum": 126,
+   "enterocyte of epithelium proper of ileum": 126,
+   "enterocyte of epithelium proper of duodenum": 126,
+   "enterocyte of epithelium proper of small intestine": 126,
+   "intestinal tuft cell": 126,
+   "fibroblast": 126,
+   "enteroendocrine cell of small intestine": 126,
+   "paneth cell of epithelium of small intestine": 126,
+   "mast cell": 126,
+   "small intestine goblet cell": 126,
+   "intestinal crypt stem cell of small intestine": 126,
+   "macrophage": 126,
+   "plasma cell": 126,
+   "natural killer cell": 100,
+   "endothelial cell of arteriole": 80,
+   "enteroglial cell": 78,
+   "gamma-delta T cell": 76,
+   "naive thymus-derived CD4-positive, alpha-beta T cell": 73,
+   "monocyte": 49,
+   "endothelial cell of lymphatic vessel": 45,
+   "neutrophil": 38,
+   "endothelial cell of venule": 32,
+   "myofibroblast cell": 30
+  },
+  "dl_s": 29.3
+ },
+ "TS_Stomach": {
+  "group": "healthy",
+  "assay": [
+   "10x 3' v3"
+  ],
+  "n_cells": 2995,
+  "n_genes": 60606,
+  "n_cell_types": 18,
+  "n_donors": 3,
+  "diseases": [
+   "normal"
+  ],
+  "cell_types": {
+   "B cell": 190,
+   "CD4-positive, alpha-beta T cell": 190,
+   "CD8-positive, alpha-beta T cell": 190,
+   "endothelial cell of lymphatic vessel": 190,
+   "epithelial cell": 190,
+   "fibroblast": 190,
+   "mast cell": 190,
+   "macrophage": 190,
+   "mononuclear phagocyte": 190,
+   "monocyte": 190,
+   "regulatory T cell": 190,
+   "tissue-resident macrophage": 190,
+   "plasma cell": 190,
+   "neutrophil": 190,
+   "natural killer cell": 114,
+   "mature NK T cell": 83,
+   "T cell": 70,
+   "interstitial cell of Cajal": 68
+  },
+  "dl_s": 17.4
+ },
+ "TS_Bone_Marrow": {
+  "group": "healthy",
+  "assay": [
+   "10x 3' v3"
+  ],
+  "n_cells": 3003,
+  "n_genes": 60606,
+  "n_cell_types": 18,
+  "n_donors": 5,
+  "diseases": [
+   "normal"
+  ],
+  "cell_types": {
+   "B cell": 184,
+   "CD4-positive, alpha-beta T cell": 184,
+   "CD8-positive, alpha-beta T cell": 184,
+   "classical monocyte": 184,
+   "common myeloid progenitor": 184,
+   "erythrocyte": 184,
+   "granulocyte": 184,
+   "erythroid progenitor cell": 184,
+   "hematopoietic precursor cell": 184,
+   "hematopoietic stem cell": 184,
+   "plasma cell": 184,
+   "monocyte": 184,
+   "neutrophil": 184,
+   "natural killer cell": 184,
+   "intermediate monocyte": 157,
+   "macrophage": 119,
+   "T cell": 86,
+   "myeloid dendritic cell": 65
+  },
+  "dl_s": 18.8
+ },
+ "TS_Spleen": {
+  "group": "healthy",
+  "assay": [
+   "10x 3' v3"
+  ],
+  "n_cells": 2997,
+  "n_genes": 60606,
+  "n_cell_types": 21,
+  "n_donors": 6,
+  "diseases": [
+   "normal"
+  ],
+  "cell_types": {
+   "B cell": 163,
+   "CD4-positive, alpha-beta T cell": 163,
+   "CD8-positive, alpha-beta T cell": 163,
+   "classical monocyte": 163,
+   "endothelial cell": 163,
+   "plasma cell": 163,
+   "erythrocyte": 163,
+   "macrophage": 163,
+   "intermediate monocyte": 163,
+   "mature NK T cell": 163,
+   "monocyte": 163,
+   "naive thymus-derived CD8-positive, alpha-beta T cell": 163,
+   "naive thymus-derived CD4-positive, alpha-beta T cell": 163,
+   "natural killer cell": 163,
+   "neutrophil": 163,
+   "regulatory T cell": 162,
+   "T cell": 121,
+   "innate lymphoid cell": 109,
+   "non-classical monocyte": 83,
+   "hematopoietic precursor cell": 41,
+   "platelet": 36
+  },
+  "dl_s": 43.0
+ },
+ "TS_Lung": {
+  "group": "healthy",
+  "assay": [
+   "10x 3' v3"
+  ],
+  "n_cells": 3002,
+  "n_genes": 60606,
+  "n_cell_types": 28,
+  "n_donors": 4,
+  "diseases": [
+   "normal"
+  ],
+  "cell_types": {
+   "B cell": 111,
+   "CD4-positive, alpha-beta T cell": 111,
+   "CD8-positive, alpha-beta T cell": 111,
+   "adventitial cell": 111,
+   "alveolar adventitial fibroblast": 111,
+   "basal cell": 111,
+   "basophil": 111,
+   "capillary endothelial cell": 111,
+   "club cell": 111,
+   "classical monocyte": 111,
+   "endothelial cell of artery": 111,
+   "endothelial cell of lymphatic vessel": 111,
+   "vein endothelial cell": 111,
+   "intermediate monocyte": 111,
+   "lung multiciliated epithelial cell": 111,
+   "macrophage": 111,
+   "monocyte": 111,
+   "natural killer cell": 111,
+   "neutrophil": 111,
+   "non-classical monocyte": 111,
+   "respiratory tract goblet cell": 111,
+   "pericyte": 111,
+   "pulmonary alveolar type 1 cell": 111,
+   "pulmonary alveolar type 2 cell": 111,
+   "bronchial smooth muscle cell": 103,
+   "mature NK T cell": 90,
+   "plasma cell": 73,
+   "vascular associated smooth muscle cell": 72
+  },
+  "dl_s": 56.7
+ },
+ "UC_colon": {
+  "group": "inflamed",
+  "assay": [
+   "10x 3' v1"
+  ],
+  "n_cells": 1782,
+  "n_genes": 59474,
+  "n_cell_types": 13,
+  "n_donors": 10,
+  "diseases": [
+   "normal"
+  ],
+  "cell_types": {
+   "CD8-alpha-beta-positive, alpha-beta intraepithelial T cell": 200,
+   "enterocyte": 200,
+   "transit amplifying cell of colon": 200,
+   "goblet cell": 200,
+   "intestinal crypt stem cell": 200,
+   "intestinal tuft cell": 194,
+   "follicular B cell": 170,
+   "enteroendocrine cell": 99,
+   "plasma cell": 80,
+   "CD4-positive, alpha-beta memory T cell": 76,
+   "CD8-positive, alpha-beta thymocyte": 57,
+   "activated CD4-positive, alpha-beta T cell": 53,
+   "mast cell": 53
+  },
+  "dl_s": 4.0
+ },
+ "PSO_skin": {
+  "group": "inflamed",
+  "assay": [
+   "10x 3' v3"
+  ],
+  "n_cells": 2992,
+  "n_genes": 28082,
+  "n_cell_types": 20,
+  "n_donors": 6,
+  "diseases": [
+   "normal",
+   "psoriasis"
+  ],
+  "cell_types": {
+   "dendritic cell, human": 190,
+   "cytotoxic T cell": 190,
+   "fibroblast": 190,
+   "endothelial cell": 190,
+   "skin fibroblast": 190,
+   "spinous cell of epidermis": 190,
+   "fibroblast of papillary layer of dermis": 190,
+   "granular cell of epidermis": 190,
+   "suprabasal keratinocyte": 190,
+   "pericyte": 190,
+   "endothelial cell of lymphatic vessel": 172,
+   "helper T cell": 164,
+   "macrophage": 151,
+   "hair follicular keratinocyte": 151,
+   "basal cell of epidermis": 119,
+   "monocyte": 101,
+   "melanocyte of skin": 97,
+   "regulatory T cell": 87,
+   "natural killer cell": 30,
+   "Langerhans cell": 20
+  },
+  "dl_s": 2.8
+ },
+ "CD_epithelial": {
+  "group": "inflamed",
+  "assay": [
+   "10x 3' v2"
+  ],
+  "n_cells": 2249,
+  "n_genes": 26766,
+  "n_cell_types": 7,
+  "n_donors": 10,
+  "diseases": [
+   "Crohn disease",
+   "normal"
+  ],
+  "cell_types": {
+   "enterocyte": 400,
+   "epithelial cell": 400,
+   "goblet cell": 400,
+   "stem cell": 400,
+   "tuft cell": 276,
+   "enteroendocrine cell": 220,
+   "paneth cell": 153
+  },
+  "dl_s": 10.7
+ },
+ "CD_immune": {
+  "group": "inflamed",
+  "assay": [
+   "10x 3' v2"
+  ],
+  "n_cells": 3010,
+  "n_genes": 26766,
+  "n_cell_types": 17,
+  "n_donors": 10,
+  "diseases": [
+   "Crohn disease",
+   "normal"
+  ],
+  "cell_types": {
+   "B cell": 220,
+   "CD4-positive, alpha-beta T cell": 220,
+   "CD8-positive, alpha-beta T cell": 220,
+   "macrophage": 220,
+   "mast cell": 220,
+   "plasma cell": 220,
+   "unknown": 220,
+   "naive T cell": 220,
+   "regulatory T cell": 218,
+   "natural killer cell": 187,
+   "monocyte": 169,
+   "leukocyte": 158,
+   "plasmacytoid dendritic cell": 157,
+   "innate lymphoid cell": 124,
+   "conventional dendritic cell": 119,
+   "dendritic cell": 83,
+   "T cell": 35
+  },
+  "dl_s": 9.3
+ }
+}

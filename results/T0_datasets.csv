@@ -1,0 +1,15 @@
+dataset,group,n_cells,n_donors,n_cell_types,assay,disease
+TS_Bone_Marrow,healthy,3003,5,18,10x 3' v3,normal
+TS_Kidney,healthy,1315,1,8,10x 3' v3,normal
+TS_Large_Intestine,healthy,3005,5,24,10x 3' v3,normal
+TS_Liver,healthy,2995,4,20,10x 3' v3,normal
+TS_Lung,healthy,3002,4,28,10x 3' v3,normal
+TS_Pancreas,healthy,1887,3,13,10x 3' v3,normal
+TS_Skin,healthy,2301,4,14,10x 3' v3,normal
+TS_Small_Intestine,healthy,2995,5,29,10x 3' v3,normal
+TS_Spleen,healthy,2997,6,21,10x 3' v3,normal
+TS_Stomach,healthy,2995,3,18,10x 3' v3,normal
+CD_epithelial,inflamed,2249,10,7,10x 3' v2,Crohn disease; normal
+CD_immune,inflamed,3010,10,17,10x 3' v2,Crohn disease; normal
+PSO_skin,inflamed,2992,6,20,10x 3' v3,normal; psoriasis
+UC_colon,inflamed,1782,10,13,10x 3' v1,normal

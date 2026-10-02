@@ -1,0 +1,326 @@
+{
+ "f354e4c3-eb53-4917-8476-39a860e30124": {
+  "tag": "breast_wu",
+  "title": "1142243F",
+  "cells": 4992,
+  "mb": 1854.3,
+  "url": "https://datasets.cellxgene.cziscience.com/5d904a8a-9190-43d6-8779-f167bf508244.h5ad",
+  "disease": [
+   "breast carcinoma"
+  ],
+  "assay": [
+   "Visium Spatial Gene Expression V1"
+  ]
+ },
+ "aafb780d-f52d-4285-a1f4-57376cabe1ee": {
+  "tag": "breast_wu",
+  "title": "CID4290",
+  "cells": 4992,
+  "mb": 239.3,
+  "url": "https://datasets.cellxgene.cziscience.com/9c62cb12-39e5-4cf4-a030-802ef136d044.h5ad",
+  "disease": [
+   "invasive ductal breast carcinoma"
+  ],
+  "assay": [
+   "Visium Spatial Gene Expression V1"
+  ]
+ },
+ "a6b0f655-820c-4082-98e2-42f33c2a71a7": {
+  "tag": "breast_wu",
+  "title": "CID44971",
+  "cells": 4992,
+  "mb": 214.4,
+  "url": "https://datasets.cellxgene.cziscience.com/58a6f5de-f847-495d-84a5-4766c76dcbc0.h5ad",
+  "disease": [
+   "invasive ductal breast carcinoma"
+  ],
+  "assay": [
+   "Visium Spatial Gene Expression V1"
+  ]
+ },
+ "9fddb063-056d-4202-8b8a-4b0ee531d3ce": {
+  "tag": "breast_wu",
+  "title": "A single-cell and spatially-resolved atlas of human bre",
+  "cells": 100064,
+  "mb": 843.9,
+  "url": "https://datasets.cellxgene.cziscience.com/22a27631-aecf-463b-86c6-a8334a2f2cf2.h5ad",
+  "disease": [
+   "breast carcinoma",
+   "invasive ductal breast carcinoma",
+   "invasive lobular breast carcinoma"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "933497dc-7592-4532-9056-b9941547b3ac": {
+  "tag": "breast_wu",
+  "title": "A single-cell and spatially-resolved atlas of human bre",
+  "cells": 35214,
+  "mb": 171.6,
+  "url": "https://datasets.cellxgene.cziscience.com/fff5d349-6bf8-4a6d-8124-486e2c9daf20.h5ad",
+  "disease": [
+   "breast carcinoma",
+   "invasive ductal breast carcinoma",
+   "invasive lobular breast carcinoma"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "80466231-7133-4097-88ae-40cb6cce1a33": {
+  "tag": "breast_wu",
+  "title": "CID4465",
+  "cells": 4992,
+  "mb": 214.2,
+  "url": "https://datasets.cellxgene.cziscience.com/0fa1249e-a670-4534-b51c-69218dce7889.h5ad",
+  "disease": [
+   "invasive ductal breast carcinoma"
+  ],
+  "assay": [
+   "Visium Spatial Gene Expression V1"
+  ]
+ },
+ "7357bdd2-e05b-4e87-acd9-e3a26382648b": {
+  "tag": "breast_wu",
+  "title": "A single-cell and spatially-resolved atlas of human bre",
+  "cells": 24489,
+  "mb": 323.3,
+  "url": "https://datasets.cellxgene.cziscience.com/de3c0ed3-5aab-4fd5-be2d-ecaa1b598a18.h5ad",
+  "disease": [
+   "breast carcinoma",
+   "invasive ductal breast carcinoma",
+   "invasive lobular breast carcinoma"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 5' v1"
+  ]
+ },
+ "6f0858c0-c590-4740-b022-c152e7608d66": {
+  "tag": "breast_wu",
+  "title": "CID4535",
+  "cells": 4992,
+  "mb": 216.3,
+  "url": "https://datasets.cellxgene.cziscience.com/91d821e4-403c-4de8-bed8-f798ad33d93a.h5ad",
+  "disease": [
+   "invasive lobular breast carcinoma"
+  ],
+  "assay": [
+   "Visium Spatial Gene Expression V1"
+  ]
+ },
+ "4cdd25a4-f4fa-4c13-b8a9-80cf28511d46": {
+  "tag": "breast_wu",
+  "title": "A single-cell and spatially-resolved atlas of human bre",
+  "cells": 19601,
+  "mb": 178.4,
+  "url": "https://datasets.cellxgene.cziscience.com/0e60d1bf-5366-47ba-a01c-7011dade6b76.h5ad",
+  "disease": [
+   "breast carcinoma",
+   "invasive ductal breast carcinoma",
+   "invasive lobular breast carcinoma"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "24dbd26d-1a3a-4a0c-a4e9-3d95f373217f": {
+  "tag": "breast_wu",
+  "title": "1160920F",
+  "cells": 4992,
+  "mb": 1837.3,
+  "url": "https://datasets.cellxgene.cziscience.com/6cdeab96-fd27-40c9-a75a-cb94a41ec10b.h5ad",
+  "disease": [
+   "breast carcinoma"
+  ],
+  "assay": [
+   "Visium Spatial Gene Expression V1"
+  ]
+ },
+ "11a3244a-6b2f-43ca-95a5-d2cd95c482d2": {
+  "tag": "breast_wu",
+  "title": "A single-cell and spatially-resolved atlas of human bre",
+  "cells": 9675,
+  "mb": 98.4,
+  "url": "https://datasets.cellxgene.cziscience.com/27a4cfeb-fc26-4b46-8320-d84e17d1004b.h5ad",
+  "disease": [
+   "breast carcinoma",
+   "invasive ductal breast carcinoma",
+   "invasive lobular breast carcinoma"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "0c86f0de-ddcb-454c-b00b-37feb69e7da1": {
+  "tag": "breast_wu",
+  "title": "A single-cell and spatially-resolved atlas of human bre",
+  "cells": 3524,
+  "mb": 21.4,
+  "url": "https://datasets.cellxgene.cziscience.com/0b8e5229-5ab6-4c9d-b01a-3192fd716ca5.h5ad",
+  "disease": [
+   "invasive ductal breast carcinoma",
+   "invasive lobular breast carcinoma"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "04d87de6-c20a-4186-8884-f47dba20b0a4": {
+  "tag": "breast_wu",
+  "title": "A single-cell and spatially-resolved atlas of human bre",
+  "cells": 3206,
+  "mb": 18.3,
+  "url": "https://datasets.cellxgene.cziscience.com/075b9b95-c24c-4c02-ae8c-ae5381418e87.h5ad",
+  "disease": [
+   "breast carcinoma",
+   "invasive ductal breast carcinoma",
+   "invasive lobular breast carcinoma"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "f89af62b-4059-4fb9-8bc0-e8e189c4c340": {
+  "tag": "crc_pelka",
+  "title": "Stromal cells",
+  "cells": 15438,
+  "mb": 176.3,
+  "url": "https://datasets.cellxgene.cziscience.com/3e97852a-0caf-4e9b-9355-9d5f408b4fcb.h5ad",
+  "disease": [
+   "colon adenocarcinoma",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "f5af510b-86d5-4f98-946f-b2d6d3e28de9": {
+  "tag": "crc_pelka",
+  "title": "Mast cells",
+  "cells": 3834,
+  "mb": 23.1,
+  "url": "https://datasets.cellxgene.cziscience.com/442cb540-30c9-4262-be57-46f02b12ad77.h5ad",
+  "disease": [
+   "colon adenocarcinoma",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "9bf9dd7d-e23e-49ee-95cc-11df3bd61769": {
+  "tag": "crc_pelka",
+  "title": "Immune cells",
+  "cells": 182548,
+  "mb": 1159.7,
+  "url": "https://datasets.cellxgene.cziscience.com/47da51f1-f4a7-442e-9397-d7d8dd7fb86c.h5ad",
+  "disease": [
+   "colon adenocarcinoma",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "9a7c80a5-c81a-4c94-8fc8-2517dfb8c9c3": {
+  "tag": "crc_pelka",
+  "title": "B cells",
+  "cells": 25660,
+  "mb": 124.6,
+  "url": "https://datasets.cellxgene.cziscience.com/35f971e3-0b49-475a-adea-3291cbecd9f9.h5ad",
+  "disease": [
+   "colon adenocarcinoma",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "81c2d711-7fd5-48f0-bc74-57229f3c9554": {
+  "tag": "crc_pelka",
+  "title": "Epithelial cells",
+  "cells": 168295,
+  "mb": 2396.0,
+  "url": "https://datasets.cellxgene.cziscience.com/b70f801b-8e7a-4bc4-a2c9-ce293688ed37.h5ad",
+  "disease": [
+   "colon adenocarcinoma",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "7674f8f4-7200-4f08-8412-eb114016a66f": {
+  "tag": "crc_pelka",
+  "title": "T, NK, ILC cells",
+  "cells": 76965,
+  "mb": 396.3,
+  "url": "https://datasets.cellxgene.cziscience.com/8a3ea2bf-70e2-4b60-964d-e7b3f9ad75b3.h5ad",
+  "disease": [
+   "colon adenocarcinoma",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "7274e79f-30b2-4b4d-bb53-fad600a55aff": {
+  "tag": "crc_pelka",
+  "title": "Plasma cells",
+  "cells": 37809,
+  "mb": 267.4,
+  "url": "https://datasets.cellxgene.cziscience.com/a825b5ec-ac17-49d8-8b94-203565e47353.h5ad",
+  "disease": [
+   "colon adenocarcinoma",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "1e517707-295a-408d-809c-5b1ed4dbeda4": {
+  "tag": "crc_pelka",
+  "title": "Myeloid cells",
+  "cells": 42114,
+  "mb": 379.9,
+  "url": "https://datasets.cellxgene.cziscience.com/dcd32c8a-a83d-4e5d-9997-f0c0a23db4c7.h5ad",
+  "disease": [
+   "colon adenocarcinoma",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ },
+ "16023185-de21-4c0d-a9c8-73abdd52d142": {
+  "tag": "crc_pelka",
+  "title": "All Cells",
+  "cells": 370115,
+  "mb": 3759.3,
+  "url": "https://datasets.cellxgene.cziscience.com/3d1f3641-5755-47e2-b797-10317d33fe32.h5ad",
+  "disease": [
+   "colon adenocarcinoma",
+   "normal"
+  ],
+  "assay": [
+   "10x 3' v2",
+   "10x 3' v3"
+  ]
+ }
+}
